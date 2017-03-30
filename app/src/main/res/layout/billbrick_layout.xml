@@ -41,6 +41,7 @@
         android:layout_alignTop="@+id/phoneNumber"
         android:id="@+id/extraFee"
         android:textSize="15dp"
+        android:hint="Extra Fee"
         android:layout_height="wrap_content"
         app:layout_widthPercent="30%"
         tools:text="Extra Fee" />
@@ -51,6 +52,7 @@
         android:layout_alignParentRight="true"
         android:id="@+id/subcharge"
         android:textSize="15dp"
+        android:hint="Subchange"
         android:layout_height="wrap_content"
         app:layout_widthPercent="30%"
         tools:text="subcharge" />
@@ -63,6 +65,30 @@
         android:layout_height="wrap_content"
         app:layout_widthPercent="30%"
         android:textSize="15dp"
+        android:hint="ExtraFee"
         tools:text="Extra Fee" />
+
+    <Switch
+        android:layout_below="@+id/phoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainOver"/>
+
+    <Switch
+        android:layout_toRightOf="@+id/mainOver"
+        android:layout_below="@+id/phoneNumber"
+        android:layout_width="wrap_content"
+        android:id="@+id/subOver"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/total"
+        android:hint="Total"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_below="@+id/mainOver"/>
 
 </android.support.percent.PercentRelativeLayout>

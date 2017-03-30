@@ -11,9 +11,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 
 import com.wayfair.brickkit.BrickFragment;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
@@ -23,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        final EditText subValue = (EditText) findViewById(R.id.subValue);
+        final EditText mainValue = (EditText) findViewById(R.id.mainValue);
 
         fragmentManager = getSupportFragmentManager();
         brickFragment = new BillFragment();
@@ -35,7 +39,13 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                brickFragment.updateData();
+                brickFragment.setSubOverValue(Float.valueOf(mainValue.getText().toString()),
+                        Float.valueOf(subValue.getText().toString()));
+                try {
+                    brickFragment.updateData();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -45,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 
     @Override

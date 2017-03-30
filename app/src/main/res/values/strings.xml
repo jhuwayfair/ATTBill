@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">ATTBill</string>
     <string name="action_settings">Settings</string>
-    <string name="saving_info">Saving User Information</string>
+    <string name="saving_info">Total is</string>
 </resources>
